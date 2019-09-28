@@ -38,6 +38,11 @@ Dim tkn = Await AllwayCloudSDK.GetToken.GET_LoginUser("USER", "PASS")
 ```vb.net
 Dim clnt As AllwayCloudSDK.IClient = New AllwayCloudSDK.AClient(tkn.SID, tkn.UID, tkn.PROFILE.AccessKey)
 ```
+**set client with proxy**
+```vb.net
+Dim roxy = New BackBlazeSDK.ProxyConfig With {.ProxyIP = "172.0.0.0", .ProxyPort = 80, .ProxyUsername = "myname", .ProxyPassword = "myPass", .SetProxy = true}
+Dim clnt As AllwayCloudSDK.IClient = New AllwayCloudSDK.AClient(tkn.SID, tkn.UID, tkn.PROFILE.AccessKey,roxy)
+```
 **list files/folders**
 ```vb.net
 Dim RSLT = Await clnt.List("tste/here")
